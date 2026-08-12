@@ -1,5 +1,8 @@
 <script setup>
 import { navigationItems } from '../router';
+import { useThemeStore } from '../stores/themeStore';
+
+const themeStore = useThemeStore();
 </script>
 
 <template>
@@ -22,6 +25,17 @@ import { navigationItems } from '../router';
           {{ item.label }}
         </RouterLink>
       </nav>
+
+      <button
+        type="button"
+        class="theme-toggle"
+        :aria-label="themeStore.isDark ? '라이트 모드로 전환' : '다크 모드로 전환'"
+        :title="themeStore.isDark ? '라이트 모드' : '다크 모드'"
+        @click="themeStore.toggleTheme"
+      >
+        <span aria-hidden="true">{{ themeStore.isDark ? '☀' : '☾' }}</span>
+        <span class="theme-label">{{ themeStore.isDark ? '라이트' : '다크' }}</span>
+      </button>
     </div>
   </header>
 </template>
