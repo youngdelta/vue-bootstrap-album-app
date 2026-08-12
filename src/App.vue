@@ -1,16 +1,12 @@
-<script setup>
-import LottoRecommender from './components/lotto/LottoRecommender.vue';
-</script>
-
 <template>
   <div class="app">
-    <LottoRecommender />
+    <Header />
+    <RouterView />
+    <Footer />
   </div>
 </template>
 
-<style scoped>
-.app {
-  min-height: 100vh;
-  padding: 20px 0;
-}
-</style>
+<script setup>
+import Header from './page/Header.vue';
+import Footer from './page/Footer.vue';
+</script>
